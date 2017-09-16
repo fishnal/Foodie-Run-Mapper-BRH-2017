@@ -38,3 +38,13 @@ footer {
 .search-filter-div{
     padding-bottom: 20px;
 }
+
+.navbar-brand{
+    font-size: 30px;
+}
+
+.navbar-header{
+    line-height: 30px;
+    height: 30px;
+    padding-top: 0;
+}
