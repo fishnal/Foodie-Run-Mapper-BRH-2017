@@ -8,6 +8,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link href="style.css" rel="stylesheet">
+  <script>
+    $(document).ready(() => {
+      function resizeSideBars() {
+        $(".col-sm-2, .sidenav").height($(window).height());
+      }
+
+      $(window).resize(resizeSideBars)
+
+      resizeSideBars();
+    });
+  </script>
 </head>
 <body>
 
@@ -36,18 +47,45 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>ADS</p>
+        <p>Image of Restaurant</p>
       </div>
       <div class="well">
-        <p>ADS</p>
+        <p>Restaurant Information</p>
+        <ul>
+          <li>
+            Address
+          </li>
+          <li>
+            Phone
+          </li>
+          <li>
+            Hours
+          </li>
+        </ul>
+      </div>
+      <div class="well res-info">
+        <p>Additional Restaurant Information</p>
+        <ul>
+          <li>
+            Price
+          </li>
+          <li>
+            Rating
+          </li>
+          <li>
+            Reviews (&lt;amount of reviews here&gt;)
+          </li>
+          <li>
+            Menu
+          </li>
+          <li>
+            Popular Times
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </div>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
 
 </body>
 </html>
