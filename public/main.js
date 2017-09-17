@@ -154,7 +154,7 @@ function produceList(start, end, priceLevels, rating, numStops) {
 		contentType: "application/json",
 		success: function(data) {
 			var processedJSON = processJSON(data, start, end, rating, numStops);
-			renderData(processJSON);
+			renderData(processedJSON);
 		},
 		error: function(request, status, error) {
 			alert(request.responseText);
