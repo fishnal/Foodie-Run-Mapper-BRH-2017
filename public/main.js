@@ -136,6 +136,14 @@ function produceList(start, end, priceLevels, rating, numStops) {
 	var query =baseurl+$.param(params);
 	var token ="O68RjH5EXT7RnWLL1DbfliT4wgFh6ZrsWDNAWk9N7OVEoJHtAPYDmh5klTL5TVhi4N09YQP3DgoOvArWs_Po2p3E5SSMnRG1uiGOAbatqRAk7Lmebmrg5Ieb8WO9WXYx";	
 
+	function renderData(data){
+		$.get('/public/template.html', function(templates) {
+			var template = $(templates).filter('#content').html();
+			var html = Mustache.to_html(template, data);
+			$('#output').html(html);
+		});
+	}
+
 	$.ajax({
 		url : query,
 		dataType : "json",
@@ -145,8 +153,8 @@ function produceList(start, end, priceLevels, rating, numStops) {
 		type : 'GET',
 		contentType: "application/json",
 		success: function(data) {
-			// renderData(data);
-			processJSON(data);
+			var processedJSOn = processJSON(data);
+			renderData(processJSON);
 		},
 		error: function(request, status, error) {
 			alert(request.responseText);
@@ -248,5 +256,6 @@ function processJSON(json, start, end, rating) {
 		res["project_fudi_maps_link"] = mapsLink;
 	});
 
-	return list;
+	var json2 = {"businesses": list};
+	return JSON.stringify(json2);
 }

@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrpYZe8aYVoUeRs1CAM78tqId9IjdRX8Y&callback=initMap"></script>
     <link href="/public/style.css" rel="stylesheet">
     <link href="/public/palette.css" rel="stylesheet">
     <script src="/public/main.js"></script>
@@ -44,92 +45,30 @@
             </div>
         </div>
         <div class="center-div col-md-8 light-primary-color" id="main">
-            <div class="search-div">
-                <div class="search-top-div"></div>
-                <div class="row">
-
-                    <div class="search-bar-div col-md-8 col-md-offset-2 ">
-                        <div class="row">
-                            <input type="text"  class="col-md-5 search-bar" placeholder="Search for...">
-                            <div class="col-md-1"></div>
-                            <input type="text"  class="col-md-3 search-bar" placeholder="City">
-                            <div class="col-md-1"></div>
-                            <button class="btn btn-default col-md-1" type="button">Go!</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="search-bottom-div"></div>
-            </div>
-            <div class="search-filter-div">
-                <button type="button" class="btn btn-default  ">Primary button</button>
-                <button type="button" class="btn btn-default  active">Selected</button>
-                <div class="btn-group" role="group" aria-label="...">
-                    <button type="button" class="btn btn-default">$</button>
-                    <button type="button" class="btn btn-default">$$</button>
-                    <button type="button" class="btn btn-default">$$$</button>
-                </div>
-                <button type="button" class="btn btn-default  ">Primary button</button>
-                <button type="button" class="btn btn-default  ">Primary button</button>
-                <button type="button" class="btn btn-default  " data-toggle="collapse" data-target="#advanced">All filters</button>
-            </div>
-            <div id="advanced" class="search-filter-advanced-div collapse">
-                <div class="col-md-3">
-                    <div>
-                        <h4>group1</h4>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 1</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 2</label>
-                        </div>
-                        <div class="checkbox disabled">
-                            <label><input type="checkbox" value="">Option 3</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div>
-                        <h4>group2</h4>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 1</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 2</label>
-                        </div>
-                        <div class="checkbox disabled">
-                            <label><input type="checkbox" value="">Option 3</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div>
-                        <h4>group3</h4>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 1</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 2</label>
-                        </div>
-                        <div class="checkbox disabled">
-                            <label><input type="checkbox" value="">Option 3</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div>
-                        <h4>group4</h4>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 1</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 2</label>
-                        </div>
-                        <div class="checkbox disabled">
-                            <label><input type="checkbox" value="" disabled>Option 3</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<div class="col-md-offset-1">
+				<div class="row">
+					<input type="text" id="sl" class="col-md-5 search-bar" placeholder="Starting Location">
+				</div>
+				<div class="row">
+					<input type="text" id="el" class="col-md-5 search-bar" placeholder="Ending Location">
+				</div>
+				<div class="row">
+					<label>Pricing: </label>
+					<label><input class="priceCheckbox" type="checkbox" value="$">$</label>
+					<label><input class="priceCheckbox" type="checkbox" value="$$">$$</label>
+					<label><input class="priceCheckbox" type="checkbox" value="$$$">$$$</label>
+					<label><input class="priceCheckbox" type="checkbox" value="$$$$">$$$$</label>
+				</div>
+				<div class="row">
+					<input type="text" id="rating" class="col-md-2 search-bar" placeholder="Minimum Rating">
+				</div>
+				<div class="row">
+					<input type="text" id="numStops" class="col-md-2 search-bar" placeholder="Number of stops">
+				</div>
+				<div class="row">
+					<button id="fudier">Make me a Fudi!</button>
+				</div>
+			</div>
             <div class="well well-lg text-left" id="output">
 
             </div>
