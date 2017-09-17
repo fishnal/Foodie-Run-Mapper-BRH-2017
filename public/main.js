@@ -45,7 +45,7 @@ function processData() {
             if (priceLevels.length != 0) {
                 priceLevels += ", " + (i + 1);
             } else {
-                priceLevels += (i + 1)
+                priceLevels += (i + 1);
             }
         }
     }
@@ -67,9 +67,152 @@ function processData() {
     // assume locations have been converted to latitude and longitude coordinates
     // and we've received the JSON response from the python server
     
-    // call python server method
+	// call python server method
+	
+	var geocoder = new google.maps.Geocoder();
+	start = geocodeLocation(geocoder, start);
+	end = geocodeLocation(geocoder, end);
+
+	geocoder.geocode({"addres": start}, (results, status) => {
+		if (status === 'OK') {
+			var latlngObj = results[0].geometry.location;
+			var latitude = latlngObj.lat();
+			var longitude = latlngObj.lng();
+	
+			var startLocs = [latitude, longitude];
+	
+			geocoder.geocode({"address": end}, (results2, status2) => {
+				if (status2 === 'OK') {
+					latlngObj = results2[0].geometry.location;
+					var latitude = latlngObj.lat();
+					var longitude = latlngObj.lng();
+			
+					var endLocs = [latitude, longitude];
+
+					produceList(startLocs, endLocs, rating, numStops);
+				} else {
+					alert("Couldn't geocode `" + end + "`");
+					console.log(status2);
+				}
+			});
+		} else {
+			alert("Couldn't geocode `" + start + "`");
+			console.log(status);
+		}
+	});
+
+	// call python method query_appi(latStart, longStart, latEnd, longEnd, priceLevels);
 
     var response = 'JSON_DATA_HERE';
     response = JSON.parse(response);
-    
+}
+
+function produceList(start, end, rating, numStops) {
+	function toRadians(degree) {
+		return degree * Math.PI / 180;
+	}
+	
+	function getDistance(lat1, long1, lat2, long2) {
+		lat1 = toRadians(lat1);
+		long1 = toRadians(long1);
+		lat2 = toRadians(lat2);
+		long2 = toRadians(long2);
+	
+		var dlat = lat2 - lat1;
+		var dlong = long2 - long1;
+	
+		var r = 6373e3;
+	
+		var a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat2) * Math.pow(Math.sin(dlong / 2), 2);
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+		var dist = r * c;
+	
+		return dist;
+	}
+
+	// make json call
+	var json;
+	json = json["businesses"];
+	var radialRanges = [];
+	
+	for (var i = 0; i < numStops; i++) {
+		radialRanges.push([]);
+	}
+	
+	for (var i = 0; i < json.length; i++) {
+		var business = json[i];
+		var coords = business["coordinates"];
+		var lat = coords["latitude"];
+		var long = coords["longitude"];
+		var distance = getDistance(latStart, longStart, lat, long);
+	
+		// distance from start to business will always fall in some radial
+		// category/range
+		for (var j = 0; j < numStops; j++) {
+			// range from current to next
+			var r1 = radiusIncrement * (j);
+			var r2 = radiusIncrement * (j + 1);
+	
+			if (distance >= r1 && distance < r2) {
+				// place this in r1 category
+				radialRanges[j].push(business);
+				break;
+			}
+		}
+	}
+	
+	var list = [];
+	radialRanges.forEach(rr => {
+		// remove low ratings
+		// sort by rating and review count
+		
+		for (var i = 0; i< rr.length; i++) {
+			if (rr[i]["rating"] < rating) {
+				rr.splice(i, 1);
+				i--;
+			}
+		}
+
+		rr.sort((a, b) => a["rating"] - b["rating"]);
+		for (var i = 0; i < rr.length - 1; i++) {
+			var rating = rr[i]["rating"];
+			var smallest = rr[i];
+			var index = i;
+	
+			for (var j = i + 1; j < rr.length && rating == rr[j]["rating"]; j++) {
+				if (rr[j]["review_count"] < smallest["review_count"]) {
+					smallest = rr[index = j];
+				}
+			}
+	
+			if (index != i) {
+				var temp = rr[i];
+				rr[i] = smallest;
+				rr[index] = temp;
+			}
+		}
+	
+		list.push(rr[rr.length - 1]);
+	});
+	
+	list.forEach((res, i) => {
+		var string = res["name"] + " at " + res["location"]["display_address"].join(", ");
+		var lat1 = res["coordinates"]["latitude"];
+		var long1 = res["coordinates"]["longitude"];
+		var distance;
+	
+		if (i != 0) {
+			// log distance to next location
+			var lat2 = list[i]["coordinates"]["latitude"];
+			var long2 = list[i-1]["coordinates"]["longitude"];
+		} else {
+			var lat2 = latStart;
+			var long2 = longStart;
+		}
+		
+		distance = getDistance(lat1, long1, lat2, long2);
+		string += " (" + distance.toFixed(0) + " meters)";
+	
+		console.log(string);
+	});
 }
