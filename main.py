@@ -79,8 +79,6 @@ def request(host, path, bearer_token, url_params=None):
         'Authorization': 'Bearer %s' % bearer_token,
     }
 
-    print(u'Querying {0} ...'.format(url))
-
     response = requests.request('GET', url, headers=headers, params=url_params)
 
     return response.json()
@@ -102,8 +100,6 @@ def convert_to_meters(lat1, long1, lat2, long2):
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
     distance = r * c
 
-    print(distance)
-
     return distance
 
 
@@ -113,11 +109,6 @@ def query_api(lat_start, long_start, lat_end, long_end, price_levels):
     delta_lat = int(convert_to_meters(lat_start, 0, lat_end, 0))
     delta_long = int(convert_to_meters(0, long_start, 0, long_end))
     radius = delta_lat if delta_lat > delta_long else delta_long
-
-    # print(lat_mid)
-    # print(long_mid)
-    # print(radius)
-    # print(price_levels)
 
     bearer_token = obtain_bearer_token(API_HOST, TOKEN_PATH)
     url_params = {
@@ -143,7 +134,6 @@ class ApiHandler(tornado.web.RequestHandler):
         price_levels= self.get_argument("price_levels", None, True)
         rating= self.get_argument("rating", None, True)
         num_stops= self.get_argument("num_stops", None, True)
-        print(price_levels)
         response = query_api(float(lat_start), float(long_start), float(lat_end), float(long_end), price_levels)
 
         self.write(json.dumps(response))
