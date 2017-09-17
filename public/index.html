@@ -12,7 +12,6 @@
     <link href="/public/style.css" rel="stylesheet">
     <link href="/public/palette.css" rel="stylesheet">
     <script src="/public/main.js"></script>
-    <script src="/public/yelp.js"></script>
 </head>
 <body>
 
@@ -47,10 +46,20 @@
         <div class="center-div col-md-8 light-primary-color" id="main">
 			<div class="col-md-offset-1">
 				<div class="row">
-					<input type="text" id="sl" class="col-md-5 search-bar" placeholder="Starting Location">
+                    <div class="col-md-4">
+					<span>From: </span><input type="text" id="sl" class="search-bar" placeholder="Starting Location">
+                        </div>
+                        <div class="col-md-4">
+                    <span>To: </span><input type="text" id="el" class="search-bar" placeholder="Ending Location">
+                    </div>
 				</div>
-				<div class="row">
-					<input type="text" id="el" class="col-md-5 search-bar" placeholder="Ending Location">
+                <div class="row">
+                    <div class="col-md-3">
+					<span>Rating: </span><input type="text" id="rating" class="search-bar" placeholder="Minimum Rating">
+                        </div>
+                        <div class="col-md-3">
+                    <span>Stops: </span><input type="text" id="numStops" class="search-bar" placeholder="Number of stops">
+                    </div>
 				</div>
 				<div class="row">
 					<label>Pricing: </label>
@@ -60,13 +69,7 @@
 					<label><input class="priceCheckbox" type="checkbox" value="$$$$">$$$$</label>
 				</div>
 				<div class="row">
-					<input type="text" id="rating" class="col-md-2 search-bar" placeholder="Minimum Rating">
-				</div>
-				<div class="row">
-					<input type="text" id="numStops" class="col-md-2 search-bar" placeholder="Number of stops">
-				</div>
-				<div class="row">
-					<button id="fudier">Make me a Fudi!</button>
+					<button class="btn btn-default" id="fudier">Make me a Fudi!</button>
 				</div>
 			</div>
             <div class="well well-lg text-left" id="output">
@@ -74,7 +77,6 @@
             </div>
         </div>
         <div class="col-md-2 sidenav dark-primary-color " id="mySidebar">
-            <button class="btn btn-default" onclick="side_close()">Close &times;</button>
             <div class="well">
                 <p>Image of Restaurant</p>
             </div>

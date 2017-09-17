@@ -8,7 +8,7 @@ function side_close() {
 	document.getElementById("mySidebar").style.display = "none";
 }
 function resizeSideBars() {
-	$(".col-md-2, .sidenav").height($(window).height());
+	$(".sidenav").height($(window).height());
 	$("#main").height($(window).height());
 }
 
