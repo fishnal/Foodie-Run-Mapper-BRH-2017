@@ -1,0 +1,26 @@
+<script id="content" type="text/html">
+<h3>Restaurants:</h3>
+{{#businesses}}
+<div class="panel panel-success">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{name}}</h4>
+    </div>
+    <div class="panel-body">
+        <p>Categories: {{#categories}}<span class="label label-primary">{{title}}</span> {{/categories}}</p>
+        <table class="table">
+            <tr>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Phone</th>
+            </tr>
+            <tr>
+                <td>{{price}}</td>
+                <td>{{rating}}</td>
+                <td>{{display_phone}}</td>
+            </tr>
+        </table>
+        <p><u>Location</u>: {{location.display_address}}</p>
+    </div>
+</div>
+{{/businesses}}
+</script>
