@@ -168,6 +168,7 @@ function processJSON(json, start, end, rating, numStops) {
 	var latEnd = end[0];
 	var longEnd = end[1];
 	json = json["businesses"];
+	var radiusIncrement = getDistance(latStart, longStart, latEnd, longEnd) / numStops;
 	var radialRanges = [];
 	
 	for (var i = 0; i < numStops; i++) {
