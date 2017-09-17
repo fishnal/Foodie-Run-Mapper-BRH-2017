@@ -8,7 +8,7 @@ function side_close() {
 	document.getElementById("mySidebar").style.display = "none";
 }
 function resizeSideBars() {
-	$(".col-md-2, .sidenav").height($(window).height());
+	$(".col-md-2 .sidenav").height($(window).height());
 	$("#main").height($(window).height());
 }
 
@@ -153,7 +153,7 @@ function produceList(start, end, priceLevels, rating, numStops) {
 		type : 'GET',
 		contentType: "application/json",
 		success: function(data) {
-			var processedJSOn = processJSON(data);
+			var processedJSON = processJSON(data, start, end, rating, numStops);
 			renderData(processJSON);
 		},
 		error: function(request, status, error) {
@@ -162,7 +162,7 @@ function produceList(start, end, priceLevels, rating, numStops) {
 	  });
 }
 
-function processJSON(json, start, end, rating) {
+function processJSON(json, start, end, rating, numStops) {
 	var latStart = start[0];
 	var longStart = start[1];
 	var latEnd = end[0];
