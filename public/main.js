@@ -1,18 +1,18 @@
 function side_open() {
-  document.getElementById("center").style.marginRight = "25%";
-  document.getElementById("mySidebar").style.width = "25%";
-  document.getElementById("mySidebar").style.display = "block";
+	document.getElementById("center").style.marginRight = "25%";
+	document.getElementById("mySidebar").style.width = "25%";
+	document.getElementById("mySidebar").style.display = "block";
 }
 function side_close() {
-  document.getElementById("center").style.marginRight = "0%";
-  document.getElementById("mySidebar").style.display = "none";
+	document.getElementById("center").style.marginRight = "0%";
+	document.getElementById("mySidebar").style.display = "none";
 }
-      function resizeSideBars() {
-        $(".col-md-2, .sidenav").height($(window).height());
-        $("#main").height($(window).height());
-      }
+function resizeSideBars() {
+	$(".col-md-2, .sidenav").height($(window).height());
+	$("#main").height($(window).height());
+}
 
-      
+
 $(document).ready(() => {
     $("#fudier").click(processData);
 
@@ -70,10 +70,8 @@ function processData() {
 	// call python server method
 	
 	var geocoder = new google.maps.Geocoder();
-	start = geocodeLocation(geocoder, start);
-	end = geocodeLocation(geocoder, end);
 
-	geocoder.geocode({"addres": start}, (results, status) => {
+	geocoder.geocode({"address": start}, (results, status) => {
 		if (status === 'OK') {
 			var latlngObj = results[0].geometry.location;
 			var latitude = latlngObj.lat();
@@ -89,7 +87,7 @@ function processData() {
 			
 					var endLocs = [latitude, longitude];
 
-					produceList(startLocs, endLocs, rating, numStops);
+					produceList(startLocs, endLocs, priceLevels, rating, numStops);
 				} else {
 					alert("Couldn't geocode `" + end + "`");
 					console.log(status2);
@@ -100,14 +98,9 @@ function processData() {
 			console.log(status);
 		}
 	});
-
-	// call python method query_appi(latStart, longStart, latEnd, longEnd, priceLevels);
-
-    var response = 'JSON_DATA_HERE';
-    response = JSON.parse(response);
 }
 
-function produceList(start, end, rating, numStops) {
+function produceList(start, end, priceLevels, rating, numStops) {
 	function toRadians(degree) {
 		return degree * Math.PI / 180;
 	}
@@ -130,8 +123,41 @@ function produceList(start, end, rating, numStops) {
 		return dist;
 	}
 
-	// make json call
-	var json;
+	var params = {
+		"lat_start": start[0],
+		"long_start": start[1],
+		"lat_end": end[0],
+		"long_end": end[1],
+		"price_levels": priceLevels
+	}
+
+	var baseurl ="http://localhost:8000/api?"
+	var query =baseurl+$.param(params);
+	var token ="O68RjH5EXT7RnWLL1DbfliT4wgFh6ZrsWDNAWk9N7OVEoJHtAPYDmh5klTL5TVhi4N09YQP3DgoOvArWs_Po2p3E5SSMnRG1uiGOAbatqRAk7Lmebmrg5Ieb8WO9WXYx";	
+
+	$.ajax({
+		url : query,
+		dataType : "json",
+		headers: {
+			"Content-Type":"application/json",
+			"Accept": "application/json"},
+		type : 'GET',
+		contentType: "application/json",
+		success: function(data) {
+			// renderData(data);
+			processJSON(data);
+		},
+		error: function(request, status, error) {
+			alert(request.responseText);
+		}
+	  });
+}
+
+function processJSON(json, start, end, rating) {
+	var latStart = start[0];
+	var longStart = start[1];
+	var latEnd = end[0];
+	var longEnd = end[1];
 	json = json["businesses"];
 	var radialRanges = [];
 	
@@ -196,7 +222,9 @@ function produceList(start, end, rating, numStops) {
 	});
 	
 	list.forEach((res, i) => {
-		var string = res["name"] + " at " + res["location"]["display_address"].join(", ");
+		var name = res["name"];
+		var address = res["location"]["display_address"].join(", ");
+		var string = name + " at " + address;
 		var lat1 = res["coordinates"]["latitude"];
 		var long1 = res["coordinates"]["longitude"];
 		var distance;
@@ -214,5 +242,10 @@ function produceList(start, end, rating, numStops) {
 		string += " (" + distance.toFixed(0) + " meters)";
 	
 		console.log(string);
+
+		var mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURI(name + " " + address);
+		res["project_fudi_maps_link"] = mapsLink;
 	});
+
+	return list;
 }
