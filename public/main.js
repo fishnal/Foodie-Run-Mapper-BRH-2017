@@ -1,20 +1,5 @@
-function side_open() {
-	document.getElementById("center").style.marginRight = "25%";
-	document.getElementById("mySidebar").style.width = "25%";
-	document.getElementById("mySidebar").style.display = "block";
-}
-function side_close() {
-	document.getElementById("center").style.marginRight = "0%";
-	document.getElementById("mySidebar").style.display = "none";
-}
-function resizeSideBars() {
-	$(".sidenav").height($(window).height());
-	$("#main").height($(window).height());
-}
-
-
 $(document).ready(() => {
-    resizeSideBars();
+    $("#main").height($(window).height());
     $("#fudier").click(processData);
 
     numRangeInput("#rating");
@@ -258,5 +243,5 @@ function processJSON(json, start, end, rating, numStops) {
 	});
 
 	var json2 = {"businesses": list};
-	return JSON.stringify(json2);
+	return json2;
 }
