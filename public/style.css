@@ -1,11 +1,4 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
-input[type=text] {
-    height: 30px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border-radius: 3px;
-}
 
 #output{
     overflow-y:scroll;
@@ -40,11 +33,11 @@ footer {
   .row.content {height:auto;}
 }
 
-.search-top-div{
-    height: 60px;
+.top-div{
+    height: 10px;
 }
 
-.search-bottom-div{
+.bottom-div{
     height: 30px;
 }
 
@@ -60,4 +53,8 @@ footer {
     line-height: 30px;
     height: 30px;
     padding-top: 0;
+}
+
+input[type="checkbox"] {
+  transform:scale(1.3, 1.3);
 }

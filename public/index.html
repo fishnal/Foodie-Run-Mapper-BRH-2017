@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrpYZe8aYVoUeRs1CAM78tqId9IjdRX8Y&callback=initMap"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBrpYZe8aYVoUeRs1CAM78tqId9IjdRX8Y&callback=initMap"></script>
     <link href="/public/style.css" rel="stylesheet">
     <link href="/public/palette.css" rel="stylesheet">
     <script src="/public/main.js"></script>
@@ -20,7 +20,7 @@
         <div class="navbar-header">
             <a class="navbar-brand text-primary-color">Fudi</a>
         </div>
-   </div>
+    </div>
 </nav>
 
 <div class="main-div container-fluid text-center">
@@ -44,34 +44,51 @@
             </div>
         </div>
         <div class="center-div col-md-8 light-primary-color" id="main">
-			<div class="col-md-offset-1">
-				<div class="row">
-                    <div class="col-md-4">
-					<span>From: </span><input type="text" id="sl" class="search-bar" placeholder="Starting Location">
-                        </div>
-                        <div class="col-md-4">
-                    <span>To: </span><input type="text" id="el" class="search-bar" placeholder="Ending Location">
-                    </div>
-				</div>
+            <div>
+                <div class="top-div"></div>
                 <div class="row">
-                    <div class="col-md-3">
-					<span>Rating: </span><input type="text" id="rating" class="search-bar" placeholder="Minimum Rating">
+                    <div class="col-md-4 col-md-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">From: </span><input type="text" id="sl" class="form-control" placeholder="Starting Location">
+
                         </div>
-                        <div class="col-md-3">
-                    <span>Stops: </span><input type="text" id="numStops" class="search-bar" placeholder="Number of stops">
                     </div>
-				</div>
-				<div class="row">
-					<label>Pricing: </label>
-					<label class="checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$">$</label>
-					<label class="checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$">$$</label>
-					<label class="checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$$">$$$</label>
-					<label class="checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$$$">$$$$</label>
-				</div>
-				<div class="row">
-					<button class="btn btn-default" id="fudier">Make me a Fudi!</button>
-				</div>
-			</div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">To: </span><input type="text" id="el" class="form-control" placeholder="Ending Location">
+                        </div>
+                    </div>
+                </div>
+                <div class="top-div"></div>
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Rating: </span><input type="text" id="rating" class="form-control" placeholder="Minimum Rating">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">Stops: </span><input type="text" id="numStops" class="form-control" placeholder="Number of stops">
+                        </div>
+                    </div>
+                </div>
+                <div class="top-div"></div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class ="row">
+                    <label class="">Pricing:</label>
+                    <label class=" checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$">$</label>
+                    <label class=" checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$">$$</label>
+                    <label class=" checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$$">$$$</label>
+                    <label class=" checkbox-inline"><input class="priceCheckbox" type="checkbox" value="$$$$">$$$$</label>
+                        </div>
+                        </div>
+                    </div>
+                <div class="top-div"></div>
+                <button class="btn btn-default" id="fudier">Make me a Fudi!</button>
+                <div class="top-div"></div>
+
+            </div>
             <div class="well well-lg text-left" id="output">
 
             </div>
