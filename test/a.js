@@ -85,7 +85,9 @@ radialRanges.forEach(rr => {
 });
 
 list.forEach((res, i) => {
-	var string = res["name"] + " at " + res["location"]["display_address"].join(", ");
+	var address = res["location"]["display_address"].join(", ");
+	var name = res["name"];
+	var string = name + " at " + address;
 	var lat1 = res["coordinates"]["latitude"];
 	var long1 = res["coordinates"]["longitude"];
 	var distance;
@@ -103,4 +105,9 @@ list.forEach((res, i) => {
 	string += " (" + distance.toFixed(0) + " meters)";
 
 	console.log(string);
+
+	var mapsLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURI(name + " " + address);
+	res["project_fudi_maps_link"] = mapsLink;
+
+	console.log(mapsLink);
 });
