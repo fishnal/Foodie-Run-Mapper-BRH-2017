@@ -101,29 +101,29 @@ function processData() {
 	});
 }
 
-function produceList(start, end, priceLevels, rating, numStops) {
-	function toRadians(degree) {
-		return degree * Math.PI / 180;
-	}
-	
-	function getDistance(lat1, long1, lat2, long2) {
-		lat1 = toRadians(lat1);
-		long1 = toRadians(long1);
-		lat2 = toRadians(lat2);
-		long2 = toRadians(long2);
-	
-		var dlat = lat2 - lat1;
-		var dlong = long2 - long1;
-	
-		var r = 6373e3;
-	
-		var a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat2) * Math.pow(Math.sin(dlong / 2), 2);
-		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-		var dist = r * c;
-	
-		return dist;
-	}
+function toRadians(degree) {
+	return degree * Math.PI / 180;
+}
 
+function getDistance(lat1, long1, lat2, long2) {
+	lat1 = toRadians(lat1);
+	long1 = toRadians(long1);
+	lat2 = toRadians(lat2);
+	long2 = toRadians(long2);
+
+	var dlat = lat2 - lat1;
+	var dlong = long2 - long1;
+
+	var r = 6373e3;
+
+	var a = Math.pow(Math.sin(dlat / 2), 2) + Math.cos(lat2) * Math.pow(Math.sin(dlong / 2), 2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+	var dist = r * c;
+
+	return dist;
+}
+
+function produceList(start, end, priceLevels, rating, numStops) {
 	var params = {
 		"lat_start": start[0],
 		"long_start": start[1],
