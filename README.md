@@ -1,1 +1,6 @@
-# Heroku-Tornado
+# Fudi
+BigRedHackathon Project
+
+- Justin Hu
+- Vishal Patel
+- Karthik Menta
