@@ -1,0 +1,297 @@
+{
+  "region": {
+    "center": {
+      "latitude": 40.7278005,
+      "longitude": -74.0023335
+    }
+  },
+  "total": 40,
+  "businesses": [
+    {
+      "rating": 4.5,
+      "review_count": 231,
+      "name": "Los Mariscos",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/los-mariscos-new-york?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$",
+      "distance": 1611.1748085339998,
+      "coordinates": {
+        "latitude": 40.74207,
+        "longitude": -74.00565
+      },
+      "phone": "+12129204986",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/pNtf2rg3nMqymQwFuFEoyA/o.jpg",
+      "categories": [
+        {
+          "alias": "seafood",
+          "title": "Seafood"
+        },
+        {
+          "alias": "tacos",
+          "title": "Tacos"
+        }
+      ],
+      "display_phone": "(212) 920-4986",
+      "id": "los-mariscos-new-york",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "409 W 15th St",
+          "New York, NY 10011"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": null,
+        "state": "NY",
+        "address1": "409 W 15th St",
+        "zip_code": "10011"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 1861,
+      "name": "Los Tacos No.1",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/los-tacos-no-1-new-york?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$",
+      "distance": 1670.3734148299998,
+      "coordinates": {
+        "latitude": 40.7425547,
+        "longitude": -74.0060838
+      },
+      "phone": "+12122560343",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/FU44TYl3PzXsE06G4W5aog/o.jpg",
+      "categories": [
+        {
+          "alias": "mexican",
+          "title": "Mexican"
+        }
+      ],
+      "display_phone": "(212) 256-0343",
+      "id": "los-tacos-no-1-new-york",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "75 9th Ave",
+          "New York, NY 10011"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "75 9th Ave",
+        "zip_code": "10011"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 179,
+      "name": "Momofuku Ko",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/momofuku-ko-new-york-3?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$$$$",
+      "distance": 958.4633584199998,
+      "coordinates": {
+        "latitude": 40.724776,
+        "longitude": -73.991682
+      },
+      "phone": "+12125000831",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/sa3pYIxlBMFl9zursbEKhA/o.jpg",
+      "categories": [
+        {
+          "alias": "newamerican",
+          "title": "American (New)"
+        }
+      ],
+      "display_phone": "(212) 500-0831",
+      "id": "momofuku-ko-new-york-3",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "8 Extra Pl",
+          "New York, NY 10003"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "8 Extra Pl",
+        "zip_code": "10003"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 261,
+      "name": "Manousheh",
+      "transactions": [
+        "delivery",
+        "pickup"
+      ],
+      "url": "https://www.yelp.com/biz/manousheh-new-york-2?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$",
+      "distance": 190.2727831888,
+      "coordinates": {
+        "latitude": 40.7293499,
+        "longitude": -74.00134
+      },
+      "phone": "+13479715778",
+      "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/wU7kSuj3LdNNCJ6XGzmeGw/o.jpg",
+      "categories": [
+        {
+          "alias": "lebanese",
+          "title": "Lebanese"
+        },
+        {
+          "alias": "bakeries",
+          "title": "Bakeries"
+        }
+      ],
+      "display_phone": "(347) 971-5778",
+      "id": "manousheh-new-york-2",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "193 Bleecker St",
+          "New York, NY 10012"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "193 Bleecker St",
+        "zip_code": "10012"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 1237,
+      "name": "Prince Street Pizza",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/prince-street-pizza-new-york-2?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$",
+      "distance": 856.6420259600001,
+      "coordinates": {
+        "latitude": 40.7229087705545,
+        "longitude": -73.9944863319397
+      },
+      "phone": "+12129664100",
+      "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/5cniRPMTUN1vBjbItepu9w/o.jpg",
+      "categories": [
+        {
+          "alias": "pizza",
+          "title": "Pizza"
+        }
+      ],
+      "display_phone": "(212) 966-4100",
+      "id": "prince-street-pizza-new-york-2",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "27 Prince St",
+          "New York, NY 10012"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "27 Prince St",
+        "zip_code": "10012"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 575,
+      "name": "Bohemian Restaurant",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/bohemian-restaurant-new-york?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$$$",
+      "distance": 854.49275239,
+      "coordinates": {
+        "latitude": 40.72639,
+        "longitude": -73.99236
+      },
+      "phone": "",
+      "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/c1RTpEo_qfhYlPhQ1M4hQg/o.jpg",
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "cocktailbars",
+          "title": "Cocktail Bars"
+        },
+        {
+          "alias": "burgers",
+          "title": "Burgers"
+        }
+      ],
+      "display_phone": "",
+      "id": "bohemian-restaurant-new-york",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "57 Great Jones St",
+          "New York, NY 10012"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "57 Great Jones St",
+        "zip_code": "10012"
+      }
+    },
+    {
+      "rating": 4.5,
+      "review_count": 242,
+      "name": "Simple NYC",
+      "transactions": [],
+      "url": "https://www.yelp.com/biz/simple-nyc-new-york-3?adjust_creative=kLhCU7hjwii78yYOxVD89w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=kLhCU7hjwii78yYOxVD89w",
+      "price": "$$",
+      "distance": 1366.008435736,
+      "coordinates": {
+        "latitude": 40.71821,
+        "longitude": -73.99223
+      },
+      "phone": "+16468708292",
+      "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Hy-Tw01lKQpjwdvcOwCkKg/o.jpg",
+      "categories": [
+        {
+          "alias": "japanese",
+          "title": "Japanese"
+        },
+        {
+          "alias": "hawaiian",
+          "title": "Hawaiian"
+        },
+        {
+          "alias": "poke",
+          "title": "Poke"
+        }
+      ],
+      "display_phone": "(646) 870-8292",
+      "id": "simple-nyc-new-york-3",
+      "is_closed": false,
+      "location": {
+        "city": "New York",
+        "display_address": [
+          "109 Eldridge St",
+          "New York, NY 10002"
+        ],
+        "country": "US",
+        "address2": "",
+        "address3": "",
+        "state": "NY",
+        "address1": "109 Eldridge St",
+        "zip_code": "10002"
+      }
+    }
+  ]
+}
