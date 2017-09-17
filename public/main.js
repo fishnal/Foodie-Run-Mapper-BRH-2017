@@ -14,6 +14,7 @@ function resizeSideBars() {
 
 
 $(document).ready(() => {
+    resizeSideBars();
     $("#fudier").click(processData);
 
     numRangeInput("#rating");
