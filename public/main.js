@@ -154,7 +154,7 @@ function produceList(start, end, priceLevels, rating, numStops) {
 		contentType: "application/json",
 		success: function(data) {
 			var processedJSON = processJSON(data, start, end, rating, numStops);
-			renderData(processJSON);
+			renderData(processedJSON);
 		},
 		error: function(request, status, error) {
 			alert(request.responseText);
@@ -168,6 +168,7 @@ function processJSON(json, start, end, rating, numStops) {
 	var latEnd = end[0];
 	var longEnd = end[1];
 	json = json["businesses"];
+	var radiusIncrement = getDistance(latStart, longStart, latEnd, longEnd) / numStops;
 	var radialRanges = [];
 	
 	for (var i = 0; i < numStops; i++) {
